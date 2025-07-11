@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Node.js App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #message {
+            font-size: 24px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>DevOps Node.js Demo</h1>
+    <div id="message">Ładowanie danych...</div>
+    
+    <script>
+        // Pobieranie danych z API
+        fetch('https://customdevops.github.io/customdevops/api')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').textContent = data.message;
+            })
+            .catch(error => {
+                document.getElementById('message').textContent = "Błąd ładowania danych!";
+                console.error("Błąd: ", error);
+            });
+    </script>
+</body>
+</html>
